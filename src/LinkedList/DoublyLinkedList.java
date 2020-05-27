@@ -56,7 +56,7 @@ class DoublyLinkedListDS {
      */
     void addNodeAtStart(DoublyLinkedNode node) {
         // If list is empty, set the head and tail nodes to new node, increase the list size and return
-        if (headNode == null){
+        if (headNode == null) {
             headNode = node;
             tailNode = node;
             lenOfList++;
@@ -75,10 +75,10 @@ class DoublyLinkedListDS {
     /*
     Method to add a node at the end of list, i.e. set it as the tail node
      */
-    void addNodeAtTail(DoublyLinkedNode node){
+    void addNodeAtTail(DoublyLinkedNode node) {
 
         // If list is empty, set the head and tail nodes to new node, increase the list size and return
-        if (headNode == null){
+        if (headNode == null) {
             headNode = node;
             tailNode = node;
             lenOfList++;
@@ -93,18 +93,18 @@ class DoublyLinkedListDS {
         return;
     }
 
-    void addNodeAtPosition(DoublyLinkedNode node, int position){
+    void addNodeAtPosition(DoublyLinkedNode node, int position) {
 
         // If to be added at 0th position, call the addNodeAtStart method
-        if (position == 0){
+        if (position == 0) {
             addNodeAtStart(node);
             return;
         }
 
         DoublyLinkedNode currentNode = headNode;
         int index = 0;
-        while (currentNode != null){
-            if (index == position){
+        while (currentNode != null) {
+            if (index == position) {
                 DoublyLinkedNode previousNodeForCurrent = currentNode.previousNode;
                 previousNodeForCurrent.nextNode = node;
                 node.nextNode = currentNode;
@@ -125,10 +125,10 @@ class DoublyLinkedListDS {
     /*
     Method to delete the node at the start, i.e. delete the headNode
      */
-    void deleteNodeAtStart(){
-        if (lenOfList > 0){
+    void deleteNodeAtStart() {
+        if (lenOfList > 0) {
             headNode = headNode.nextNode;
-            if (headNode != null){
+            if (headNode != null) {
                 headNode.previousNode = null;
             }
         }
@@ -138,10 +138,10 @@ class DoublyLinkedListDS {
     /*
     Method to delete the node at the end, i.e. delete the tail node
      */
-    void deleteNodeAtEnd(){
-        if (lenOfList > 0){
+    void deleteNodeAtEnd() {
+        if (lenOfList > 0) {
             tailNode = tailNode.previousNode;
-            if (tailNode != null){
+            if (tailNode != null) {
                 tailNode.nextNode = null;
             }
         }
@@ -150,21 +150,20 @@ class DoublyLinkedListDS {
     /*
     Method to delete a node a particular position in linked list
      */
-    void deleteNodeAtPosition(int position){
-        if (position == 0){
+    void deleteNodeAtPosition(int position) {
+        if (position == 0) {
             deleteNodeAtStart();
             return;
-        }
-        else if (position >= (lenOfList - 1)){
+        } else if (position >= (lenOfList - 1)) {
             deleteNodeAtEnd();
             return;
         }
 
         DoublyLinkedNode currentNode = headNode;
         int index = 0;
-        if (lenOfList > 0){
-            while (currentNode != null){
-                if (index == position){
+        if (lenOfList > 0) {
+            while (currentNode != null) {
+                if (index == position) {
                     DoublyLinkedNode previousNodeOfCurrent = currentNode.previousNode;
                     DoublyLinkedNode nextNodeOfCurrent = currentNode.nextNode;
                     previousNodeOfCurrent.nextNode = nextNodeOfCurrent;
@@ -177,22 +176,22 @@ class DoublyLinkedListDS {
     }
 
 
-    void printList(){
+    void printList() {
         DoublyLinkedNode currentNode = headNode;
         System.out.println("\n");
         System.out.println("Linked list starting from headNode");
-        while (currentNode != null){
+        while (currentNode != null) {
             System.out.println(currentNode.data);
             currentNode = currentNode.nextNode;
         }
         System.out.println("\n");
     }
 
-    void printListFromTail(){
+    void printListFromTail() {
         DoublyLinkedNode currentNode = tailNode;
         System.out.println("\n");
         System.out.println("Linked list starting from tailNode");
-        while (currentNode != null){
+        while (currentNode != null) {
             System.out.println(currentNode.data);
             currentNode = currentNode.previousNode;
         }
