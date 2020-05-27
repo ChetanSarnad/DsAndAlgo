@@ -34,22 +34,6 @@ class Node {
     public Node(int data) {
         this.data = data;
     }
-
-    public int getData() {
-        return data;
-    }
-
-    public void setData(int data) {
-        this.data = data;
-    }
-
-    public Node getNextNode() {
-        return nextNode;
-    }
-
-    public void setNextNode(Node nextNode) {
-        this.nextNode = nextNode;
-    }
 }
 
 class SinglyLinkedListDataStructure {
@@ -148,23 +132,23 @@ class SinglyLinkedListDataStructure {
 
 
     // Method to delete node at the start of the list
-    void deleteNodeAtStart(){
-        if (headNode != null){
+    void deleteNodeAtStart() {
+        if (headNode != null) {
             headNode = headNode.nextNode;
             lenOfList--;
         }
     }
 
     // Method to delete node at the end of list
-    void deleteNodeAtEnd(){
+    void deleteNodeAtEnd() {
 
         // If no elements, then return
-        if (headNode == null){
+        if (headNode == null) {
             return;
         }
 
         // If only one element, i.e. headNode present, set headNode to null and return
-        if (headNode.nextNode == null){
+        if (headNode.nextNode == null) {
             headNode = null;
             lenOfList--;
             return;
@@ -173,7 +157,7 @@ class SinglyLinkedListDataStructure {
         // For other case, Reach the end of linked list, point the node one behind last node to null, thus deleting last node.
         Node current = headNode;
         Node previous = headNode;
-        while (current.nextNode != null){
+        while (current.nextNode != null) {
             previous = current;
             current = current.nextNode;
         }
@@ -184,15 +168,15 @@ class SinglyLinkedListDataStructure {
 
 
     // Method to delete a node at particular position
-    void deleteNodeAtPosition(int position){
+    void deleteNodeAtPosition(int position) {
 
         // If list is empty
-        if (headNode == null){
+        if (headNode == null) {
             return;
         }
 
         // If only one element i.e. headNode present, set it to null
-        if (headNode.nextNode == null){
+        if (headNode.nextNode == null) {
             headNode = null;
             lenOfList--;
             return;
@@ -202,11 +186,11 @@ class SinglyLinkedListDataStructure {
         Node currentNode = headNode;
         Node previousNode = headNode;
         int index = 0;
-        while (currentNode.nextNode != null){
+        while (currentNode.nextNode != null) {
             index++;
             previousNode = currentNode;
             currentNode = currentNode.nextNode;
-            if (index == position){
+            if (index == position) {
                 previousNode.nextNode = currentNode.nextNode;
             }
         }

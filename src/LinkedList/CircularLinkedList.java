@@ -16,7 +16,7 @@ package LinkedList;
  */
 
 
-class CLLNode{
+class CLLNode {
 
     int data;
 
@@ -28,7 +28,7 @@ class CLLNode{
 }
 
 
-class CircularLinkedListDS{
+class CircularLinkedListDS {
 
     CLLNode tail;
 
@@ -38,8 +38,8 @@ class CircularLinkedListDS{
     Add node to start of list
     The node will be added after the tail node, since we assume tail points to head. And this node should be new head
      */
-    void addNodeToStart(CLLNode node){
-        if (tail == null){
+    void addNodeToStart(CLLNode node) {
+        if (tail == null) {
             tail = node;
             tail.nextNode = node;
             lenOfList++;
@@ -54,9 +54,9 @@ class CircularLinkedListDS{
     Add node to the end of list.
     The new node should be set as the tail node
      */
-    void addNodeToEnd(CLLNode node){
+    void addNodeToEnd(CLLNode node) {
         //If no nodes in the list
-        if (tail == null){
+        if (tail == null) {
             tail = node;
             tail.nextNode = node;
             lenOfList++;
@@ -77,15 +77,15 @@ class CircularLinkedListDS{
     /*
     Method to delete the node at the start of list i.e. head i.e. the node after the tail node.
      */
-    void deleteNodeAtStart(){
+    void deleteNodeAtStart() {
         // If list empty, return without doing anything
-        if (tail == null){
+        if (tail == null) {
             System.out.println("The list is empty");
             return;
         }
 
         // If length is 1, i.e. only one element, delete tail and return
-        if (lenOfList == 1){
+        if (lenOfList == 1) {
             tail = null;
             lenOfList--;
             return;
@@ -104,15 +104,15 @@ class CircularLinkedListDS{
     /*
     Method to delete the node at the end of list, i.e. delete the tail node
      */
-    void deleteNodeAtEnd(){
+    void deleteNodeAtEnd() {
         // If list empty, return without doing anything
-        if (tail == null){
+        if (tail == null) {
             System.out.println("The list is empty");
             return;
         }
 
         // If length is 1, i.e. only one element, delete tail and return
-        if (lenOfList == 1){
+        if (lenOfList == 1) {
             tail = null;
             lenOfList--;
             return;
@@ -121,7 +121,7 @@ class CircularLinkedListDS{
         // Other cases, we would need access to the node before tail node,
         // So we could point that nodes next pointer to node after the tail node and also mark it as tail node
         CLLNode tempNode = tail;
-        while (tempNode.nextNode != tail){
+        while (tempNode.nextNode != tail) {
             tempNode = tempNode.nextNode;
         }
         tempNode.nextNode = tail.nextNode;
@@ -132,8 +132,8 @@ class CircularLinkedListDS{
     /*
     Method to print all the elements in circular list
      */
-    void printList(){
-        if (tail == null){
+    void printList() {
+        if (tail == null) {
             System.out.println("List empty");
             return;
         }
@@ -142,7 +142,7 @@ class CircularLinkedListDS{
         CLLNode currentNode = tail;
         currentNode = currentNode.nextNode;
         // Continue until the list node reaches back to tail
-        while (currentNode != tail){
+        while (currentNode != tail) {
             System.out.println(currentNode.data);
             currentNode = currentNode.nextNode;
         }
@@ -161,7 +161,7 @@ public class CircularLinkedList {
 
         CircularLinkedListDS circularLinkedListDS = new CircularLinkedListDS();
 
-        System.out.println("Add three nodes to the start and print list");
+        System.out.println("Add four nodes to the start and print list");
         CLLNode cllNode1 = new CLLNode(1);
         CLLNode cllNode2 = new CLLNode(2);
         CLLNode cllNode3 = new CLLNode(3);
@@ -175,7 +175,7 @@ public class CircularLinkedList {
         circularLinkedListDS.printList();
 
         System.out.println("Add a node to the end of list and print list");
-        CLLNode cllNode5 = new CLLNode(4);
+        CLLNode cllNode5 = new CLLNode(5);
         circularLinkedListDS.addNodeToEnd(cllNode5);
 
         circularLinkedListDS.printList();
