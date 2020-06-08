@@ -3,7 +3,7 @@ package Stacks;
 /*
 Stack implementation using an array
  */
-class StackArray{
+class StackArray {
 
     // Define capacity of stack, number of elements it can hold
     int capacity;
@@ -15,7 +15,7 @@ class StackArray{
     int top = -1;
 
     // constructor for the stack, takes the capacity and
-    StackArray(int capacity){
+    StackArray(int capacity) {
         // set the capacity
         this.capacity = capacity;
 
@@ -24,8 +24,8 @@ class StackArray{
     }
 
     // Push method to add data to stack
-    void push(int data){
-        if (size() == capacity){
+    void push(int data) {
+        if (size() == capacity) {
             System.out.println("\n The stack is full");
             return;
         }
@@ -36,7 +36,7 @@ class StackArray{
     // Pop the value at top index and decrement the top
     int pop() throws Exception {
         // Throw exception if stack is empty
-        if (isEmpty()){
+        if (isEmpty()) {
             throw new Exception("Stack is empty");
         }
         // capture top data before deleting
@@ -50,7 +50,7 @@ class StackArray{
     // Everything similar to pop, except no decrement of the top.
     int peek() throws Exception {
         // Throw exception if stack is empty
-        if (isEmpty()){
+        if (isEmpty()) {
             throw new Exception("Stack is empty");
         }
         // capture top data before deleting
@@ -59,10 +59,10 @@ class StackArray{
     }
 
     // Method to print the elements of stack
-    void printStack(){
+    void printStack() {
         System.out.println("\n Stack : ");
         int stackLength = stackArray.length;
-        for (int i = 0; i < stackLength; i++){
+        for (int i = 0; i < stackLength; i++) {
             System.out.println(stackArray[i]);
         }
 
@@ -70,12 +70,12 @@ class StackArray{
 
     // Method to fetch the size of stack. Increment top, since we start with top value as -1
     // After adding first element top value will be incremented from -1 to 1
-    int size(){
+    int size() {
         return top + 1;
     }
 
     // If top is -1, then no elements are added, since we increment top while adding elements
-    boolean isEmpty(){
+    boolean isEmpty() {
         return top == -1;
     }
 
@@ -116,12 +116,12 @@ public class StackUsingArray {
 
         stackArray.printStack();
 
-        try{
+        try {
             System.out.println("\n Pop out an element");
             stackArray.pop();
 
             stackArray.printStack();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
