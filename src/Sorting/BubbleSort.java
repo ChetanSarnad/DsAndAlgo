@@ -74,7 +74,7 @@ public class BubbleSort {
         numbers[secondIndex] = numbers[firstIndex];
         numbers[firstIndex] = temp;
 
-        //Can we also achieved with a temp variable
+        //Can we also achieved without a temp variable
         //int a=10, b=20;
         //a=a+b;//a=30 (10+20)
         //b=a-b;//b=10 (30-20)
