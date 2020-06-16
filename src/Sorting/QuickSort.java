@@ -20,7 +20,12 @@ Now lets understand the concept of partition, pivot and partition index
 
 Time and space complexity:
 
-1. Time complexity is O(n (log n))
+1. Time complexity is O(n (log n)) in average and best case
+   O(n^2) in worst case, when array is already sorted and we pick pivot as last element
+   the left side of pivot will almost to full array, except pivot element.
+   Hence next recurvsive call be on n-1 elements, next will be n-2 and so on.
+   Instead of n/2 in case of random array.
+   This can be solved by randomized partition, i.e. pick random pivot, instead of picking end element always as pivot
 2. Space complexity is : in place, no additional space needed i,e O(1)
  */
 public class QuickSort {
