@@ -44,6 +44,8 @@ Now lets see an implementation of Max heap below, Min heap is just another varia
 
  */
 
+import java.util.Arrays;
+
 public class Heap {
 
     Integer[] arrayRepOfTree;
@@ -139,12 +141,119 @@ public class Heap {
 
     }
 
+
+    /*
+
+    Delete method for heap
+
+    Delete always deletes the element at root, i.e. the maximum value.
+
+    Now there will be blank spot at root, we will put the element from last spot to root.
+
+    After that we need check the new root value with its descendents and check if it is smaller than them.
+    If smaller, move the greater of the two kids to the parents position, move the parent to that kid's position.
+
+    Continue comparing that new kid to its kids and check if heap property of max heap is applicable, else swap, this is recursive.
+
+    We call this procedure heapify down.
+
+    Also a bit of heap sort functionality we will add here in delete method.
+    Once the root is deleted, the last element is moved to root.
+    There is a vacant space left by that last element, we will put the deleted root element here.
+    So like that, if we delete all elements and keep adding at the empty spots, the whole array will be sorted :)
+    More will be covered in heap sort method, but making that change in delete method here.
+
+     */
+    public int delete() {
+
+        // Always delete root. i.e. item at index 0
+        int deletedItem = arrayRepOfTree[0];
+
+        // Now put the last element in root empty space
+        int lastItem = arrayRepOfTree[size - 1];
+        arrayRepOfTree[0] = lastItem;
+
+        // Now there is an empty spot at last element, put the deleted root element there
+        arrayRepOfTree[size - 1] = deletedItem;
+
+        // Decrease size of Heap
+        size--;
+
+        // Now the item that we put in root may not be the largest element, heap rule might fail,
+        // hence call heapifyDown starting with root
+        heapifyDown(0);
+
+        // return item to be deleted
+        return deletedItem;
+
+    }
+
+    /*
+    Compare the two children of the parent, compare the larger kid with its parent, swap if parent smaller than kid.
+    Continue down till the leaf element
+     */
+    private void heapifyDown(int parentIndex) {
+
+        // Break if incoming index is greater than size of heap
+        // Useful in recursion, since we will call it with kids of parentIndex
+        if (parentIndex >= size) {
+            return;
+        }
+
+        // parent Element
+        int parentElement = arrayRepOfTree[parentIndex];
+
+        Integer leftChild = null;
+        int leftChildIndex = -1;
+        if ((2 * parentIndex + 1) < size) {
+            leftChildIndex = 2 * parentIndex + 1;
+            leftChild = arrayRepOfTree[leftChildIndex];
+        }
+
+        Integer rightChild = null;
+        int rightChildIndex = -1;
+        if ((2 * parentIndex + 2) < size) {
+            rightChildIndex = 2 * parentIndex + 2;
+            rightChild = arrayRepOfTree[rightChildIndex];
+        }
+
+        // Return if leftChild null, right child will obviously be null in complete binary tree
+        // So no comparison needed if no kids, return from here
+        if (leftChild == null) {
+            return;
+        }
+
+        if (rightChild == null) {
+            // Compare leftChild with parent and swap if required
+            if (leftChild > parentElement) {
+                swap(parentIndex, leftChildIndex);
+            }
+            // Now call heapifyDown with left child index
+            heapifyDown(leftChildIndex);
+            return;
+        }
+
+        if (leftChild > rightChild) {
+            swap(parentIndex, leftChildIndex);
+            // Now call heapifyDown with left child index
+            heapifyDown(leftChildIndex);
+            return;
+        } else {
+            swap(parentIndex, rightChildIndex);
+            // Now call heapifyDown with left child index
+            heapifyDown(rightChildIndex);
+            return;
+        }
+
+    }
+
     public void printHeap() {
         System.out.println("Print the heap");
         for (int i = 0; i < size; i++) {
             System.out.print(arrayRepOfTree[i]);
             System.out.print(" ");
         }
+        System.out.println();
     }
 
 
@@ -158,6 +267,29 @@ public class Heap {
         heap.insert(50);
 
         heap.printHeap();
+
+        System.out.println("\nDelete invoked");
+        heap.delete();
+        heap.printHeap();
+
+        System.out.println("\nDelete invoked");
+        heap.delete();
+        heap.printHeap();
+
+        System.out.println("\nDelete invoked");
+        heap.delete();
+        heap.printHeap();
+
+        System.out.println("\nDelete invoked");
+        heap.delete();
+        heap.printHeap();
+
+        System.out.println("\nDelete invoked");
+        heap.delete();
+        heap.printHeap();
+
+        System.out.println("Check if sorted after deleting all elements");
+        System.out.println(Arrays.asList(heap.arrayRepOfTree));
 
     }
 
