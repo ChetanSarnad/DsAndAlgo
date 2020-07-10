@@ -247,6 +247,23 @@ public class Heap {
 
     }
 
+    /*
+
+    So heapify method converts and array representation of tree to heap.
+
+    Here we visit each node starting from the end and perform heapify down, i.e. compare with its kids.
+
+    The complexity is considered as O(n) because half of the elements are at leaf, hence 0(1) for each one of those nodes.
+
+    And log(n) for root, some intermediate value for middle level elements.
+
+    Hence O(n) overall.
+
+     */
+    public void heapify() {
+
+    }
+
     public void printHeap() {
         System.out.println("Print the heap");
         for (int i = 0; i < size; i++) {
