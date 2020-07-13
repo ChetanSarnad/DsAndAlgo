@@ -1,7 +1,7 @@
 package Trees.BasicImplementations;
 
 /*
-
+AVL named after inventors Adelson-Velsky and Landis
 AVL trees are required in order to maintain the balance of the tree
 AVL trees are BST trees.
 
