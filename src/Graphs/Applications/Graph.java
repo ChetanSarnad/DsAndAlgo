@@ -1,4 +1,4 @@
-package Graphs.BasicImplementations;
+package Graphs.Applications;
 
 /*
 
@@ -85,21 +85,17 @@ Adjacency matrix now using indices of vertex
 
  */
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Graph<T>{
 
     private List<Edge<T>> allEdges;
-    private Map<Long,Vertex<T>> allVertex;
+    private Map<Long, Vertex<T>> allVertex;
     boolean isDirected = false;
 
     public Graph(boolean isDirected){
         allEdges = new ArrayList<Edge<T>>();
-        allVertex = new HashMap<Long,Vertex<T>>();
+        allVertex = new HashMap<Long, Vertex<T>>();
         this.isDirected = isDirected;
     }
 
@@ -260,14 +256,14 @@ class Edge<T>{
         this.vertex2 = vertex2;
     }
 
-    Edge(Vertex<T> vertex1, Vertex<T> vertex2,boolean isDirected,int weight){
+    Edge(Vertex<T> vertex1, Vertex<T> vertex2, boolean isDirected, int weight){
         this.vertex1 = vertex1;
         this.vertex2 = vertex2;
         this.weight = weight;
         this.isDirected = isDirected;
     }
 
-    Edge(Vertex<T> vertex1, Vertex<T> vertex2,boolean isDirected){
+    Edge(Vertex<T> vertex1, Vertex<T> vertex2, boolean isDirected){
         this.vertex1 = vertex1;
         this.vertex2 = vertex2;
         this.isDirected = isDirected;
