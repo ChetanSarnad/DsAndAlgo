@@ -39,5 +39,5 @@ So null acts as a separator for the levels
 
  */
 public class LevelOrderTraversalLevelByLevel {
-    
+
 }
