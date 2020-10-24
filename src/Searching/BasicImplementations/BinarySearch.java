@@ -4,8 +4,8 @@ package Searching.BasicImplementations;
 Binary search works on sorted array
 We first find the middle element and compare with out item
 If exact match then return as found
-If the middle element is lesser than out item, then search only in left half
-If the middle element is greater than out item, then search only in right half
+If the item is greater than our middle element, search in the right half
+If the item is smaller than our middle element, search in the left half
 Continue to recursively find the middle element of left and right section and continue procedure until found
 or no further division possible.
 
@@ -30,20 +30,20 @@ public class BinarySearch {
             int middle = (low + high) / 2;
             // This could also be written as low + (high - low)/2.
             // This is for overcoming overflow in integers if low + high is very large number
-            // If you multiply low + (high - low)/2 by 2, you again get (low + high)/2
+            // It further evaluates to low + high/2 - low/2 = low/2 + high/2 = (low + high)/2;
 
             // find middle element
             int middleElement = numArray[middle];
 
-            if (middleElement == item) {
+            if (item == middleElement) {
                 // If middle element is same as item, then found, return true
                 return true;
-            } else if (middleElement < item) {
-                // if middleElement lesser than item, search in first half only, set high at half way mark
+            } else if (item < middleElement) {
+                // if item is lesser than middle element, set high at half way mark
                 high = middle - 1;
             } else {
-                // if middleElement greater than item, search in second half only, set low at half way mark
-                low = middleElement + 1;
+                // if item is greater than middle element, search in second half only, set low at half way mark
+                low = middle + 1;
             }
         }
 
@@ -80,6 +80,16 @@ public class BinarySearch {
 
         System.out.println("Search for : " + 9);
         isFound = binarySearch.binarySearch(numArray, 9);
+
+        System.out.println("Found item : " + isFound);
+
+        System.out.println("Search for : " + 18);
+        isFound = binarySearch.binarySearch(numArray, 18);
+
+        System.out.println("Found item : " + isFound);
+
+        System.out.println("Search for : " + 2);
+        isFound = binarySearch.binarySearch(numArray, 2);
 
         System.out.println("Found item : " + isFound);
 

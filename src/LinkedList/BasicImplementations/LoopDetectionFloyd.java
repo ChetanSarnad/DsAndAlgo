@@ -5,7 +5,7 @@ Class to demonstrate Floyds algorithm for loop detection in linked list.
 
 Here we would be having two pointers, slow pointer and fast pointer.
 
-In the begining both point to head node, then slow pointer moves by one node and fast moves two nodes at a time.
+In the beginning both point to head node, then slow pointer moves by one node and fast moves two nodes at a time.
 
 Finally at some point the fast pointer catches up and meets slow pointer. If both meet then it has a loop.
 

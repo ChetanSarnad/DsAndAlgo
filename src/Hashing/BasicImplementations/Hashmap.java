@@ -9,8 +9,8 @@ Class to demonstrate the working of a hashmap
 So the question is how to fit big list of data, uniquely into a limited set of slots.
 The technique is hashing, we calculate the hash of the element, then find the right slot/address to fit it into.
 If two elements get the same hash, it is called as collision.
-Collision can be resolved using mutliple techniques like probing or chaining.
-Here we will look at chaining, that is, each slot in hashmap holds a list.
+Collision can be resolved using multiple techniques like probing or chaining.
+Here we will look at chaining, that is, each slot in HashMap holds a list.
 All elements with same hash will be added to the list in this slot of hashmap
  */
 public class Hashmap {
