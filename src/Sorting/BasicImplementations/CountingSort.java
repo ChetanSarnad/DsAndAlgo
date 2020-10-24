@@ -51,7 +51,7 @@ Range array Indexes    : [0, 1, 2, 3]
 Range array Values     : [1, 3, 0, 2]
 Range array new Values : [1, 4, 4, 6]
 
-Shirt the range array to its right by 1
+Shift the range array to its right by 1
 Range array Values     : [1, 4, 4, 6]
 Range array new Values : [0, 1, 4, 4]
 
@@ -62,7 +62,7 @@ Now for each index in range, it indicate the start index for the element in inpu
 Wondering by 2 and 3 has same start index?
 2 is not present in input, hence it does not make a difference, you will see when we traverse the input and sort.
 
-Btw if you do not wish to shit, another way to get the start index by check value at index-1 in range array.
+Btw if you do not wish to shift, another way to get the start index by check value at index-1 in range array.
 
 Alright, now we have all required info, lets get sorting
 
