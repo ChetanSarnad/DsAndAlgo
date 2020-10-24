@@ -9,11 +9,11 @@ The quick sort consists of below step
 3. Now recursively call the quick sort of left section and right section
 
 Now lets understand the concept of partition, pivot and partition index
-- Consider the last element of array as pivot
+- Consider the last element of array as pivot. This is the element against which all comparison of elements in array will be done.
 - Now set a partition index at the beginning of array to start with.
 - Loop over the elements from start to end, compare the value with pivot.
 - If value is lesser than pivot value, swap the index with partition index and increment partition index, so that lesser values are towards left of partition index
-- Complete this for all elements, finally all elements smaller than partition index will be on left, greater will be on right.
+- Complete this for all elements, finally all elements smaller than pivot will be on left, greater will be on right.
 - Only the pivot will be left at the end
 - Finally swap the pivot with partition index, so element on left of pivot are smaller. This is our final goal.
 - return the pivot position.
@@ -23,7 +23,7 @@ Time and space complexity:
 1. Time complexity is O(n (log n)) in average and best case
    O(n^2) in worst case, when array is already sorted and we pick pivot as last element
    the left side of pivot will almost to full array, except pivot element.
-   Hence next recurvsive call be on n-1 elements, next will be n-2 and so on.
+   Hence next recursive call be on n-1 elements, next will be n-2 and so on.
    Instead of n/2 in case of random array.
    This can be solved by randomized partition, i.e. pick random pivot, instead of picking end element always as pivot
 2. Space complexity is : in place, no additional space needed i,e O(1)
@@ -32,8 +32,8 @@ public class QuickSort {
 
 
     /*
-    Method to perform quick sort
-     */
+        Method to perform quick sort
+    */
     public void quickSort(int[] numArray, int start, int end) {
 
         // Break condition, if the start index is greater than the end index
@@ -41,7 +41,7 @@ public class QuickSort {
             return;
         }
 
-        // partition the array, with elements lesser than partition index on left, greater on right
+        // partition the array, with elements lesser than pivot on left, greater on right
         int partitionIndex = partition(numArray, start, end);
 
         // sort the left elements
@@ -54,8 +54,8 @@ public class QuickSort {
 
 
     /*
-    Method to perform the partition
-     */
+        Method to perform the partition
+    */
     private int partition(int[] numArray, int start, int end) {
 
         // consider the pivot as element at end
@@ -70,7 +70,7 @@ public class QuickSort {
             // Compare the element at index with pivot value
             if (numArray[i] < pivot) {
                 // swap with partitionIndex and increment partition index,
-                // so element smaller than partitionIndex is on the left now
+                // so element smaller than pivot is on the left of partitionIndex now
                 swap(numArray, i, partitionIndex);
 
                 partitionIndex++;
