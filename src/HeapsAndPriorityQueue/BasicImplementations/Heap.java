@@ -259,6 +259,16 @@ public class Heap {
 
     Hence O(n) overall.
 
+    Alright, now lets compare two ways of creating a heap.
+    Suppose I have 10 elements, I want to create heap
+
+    1st way : Insert 10 times, each single insert takes log(n), so 10 log(n), i.e. n*log(n)
+    2nd way : Keep on adding elements to binary tree, i.e. at end index each time, time taken is n
+              Perform heapify now, to convert to heap, time take for heapify is n again
+              Total time = n + n + 2n, which is nothing but Big O of n again.
+
+    Hence heapify is the fastest way of creating a heap, because O(n) vs O(n*log(n))
+
      */
     public void heapify() {
 
