@@ -22,7 +22,8 @@ Lets see how the M-way trees / B Trees / B+ Trees.
 
 2. M-way trees :
 Like Binary trees mean there will be two children for each node, M-way trees mean there can be m children for each node.
-As an example, lets consider 3-way tree
+And not only have m children, it can also have multiple keys at each node. And keys will be m - 1.
+As an example, lets consider 3-way tree. Keys will be 3-1 = 2 keys.
 
                        (10, 30)
 
